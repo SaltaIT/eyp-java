@@ -55,7 +55,11 @@ class { 'java':
 
 ## Reference
 
-TODO
+* **version**: oracle java version (default: 8)
+* **srcdir**: source dir to keep temporal files (default: /usr/local/src)
+* **basedir**: base dir to install a oracle java (default: /opt)
+* **java_package**: java package to install if you don't want to use the oracle java version (default: undef)
+* **java_devel_package**: java devel package to install if you don't want to use the oracle java version (default: undef)
 
 ## Limitations
 
