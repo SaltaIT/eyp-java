@@ -1,10 +1,10 @@
 #
 class java(
-            $version=8,
-            $srcdir='/usr/local/src',
-            $basedir='/opt',
-            $java_package=undef,
-            $java_devel_package=undef,
+            $version            = 8,
+            $srcdir             = '/usr/local/src',
+            $basedir            = '/opt',
+            $java_package       = undef,
+            $java_devel_package = undef,
           ) inherits java::params {
 
   Exec {
@@ -39,7 +39,7 @@ class java(
     }
     else
     {
-      exec { "java $version download":
+      exec { "java ${version} download":
         command => "${java::params::jre_download_command[$version]} -O ${srcdir}/jre-${version}.tgz",
         creates => "${srcdir}/jre-${version}.tgz",
         require => Package['wget'],
@@ -53,13 +53,13 @@ class java(
         mode   => '0755',
       }
 
-      exec { "targz java $version":
+      exec { "targz java ${version}":
         command => "tar xzf ${srcdir}/jre-${version}.tgz -C ${basedir}/jre-${version} --strip-components=1",
         require => [ File["${basedir}/jre-${version}"], Exec["java $version download"] ],
         creates => "${basedir}/jre-${version}/bin/java",
       }
 
-      exec { "update alternatives ${basedir}/jre-$version":
+      exec { "update alternatives ${basedir}/jre-${version}":
         command => "alternatives --install /usr/bin/java java ${basedir}/jre-${version}/bin/java 1",
         require => Exec["targz java $version"],
         unless  => "${unless_update_alternatives} | grep ${basedir}/jre-${version}/bin/java",

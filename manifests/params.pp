@@ -11,13 +11,16 @@ class java::params {
       $unless_update_alternatives='echo | alternatives --config java'
       case $::operatingsystemrelease
       {
+        /^5.*$/:
+        {
+        }
         /^6.*$/:
         {
         }
         /^7.*$/:
         {
         }
-        default: { fail("Unsupported RHEL/CentOS version!")  }
+        default: { fail('Unsupported RHEL/CentOS version!')  }
       }
     }
     'Debian':
