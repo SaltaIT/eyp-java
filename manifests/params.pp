@@ -52,6 +52,7 @@ class java::params {
     }
     'Debian':
     {
+      fail('work in progress')
       $unless_update_alternatives='alternatives --list'
     }
     default  : { fail('Unsupported OS!') }
