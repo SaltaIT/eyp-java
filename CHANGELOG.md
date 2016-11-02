@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## 0.1.14
+## 0.1.16
 
-* alternatives set
+* alternatives set (testing in prod)
 
 ## 0.1.11
 

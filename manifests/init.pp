@@ -91,7 +91,7 @@ class java(
       exec { "set java alternatives ${basedir}/jre-${version}":
         command => "alternatives --set java ${basedir}/jre-${version}/bin/java",
         require => Exec["update alternatives ${basedir}/jre-${version}"],
-        unless  => "${unless_update_alternatives} | grep -P \"java\t\" | grep manual | grep ${basedir}/jre-${version}/bin/java",
+        unless  => "alternatives --list | grep -P \"java\\t\" | grep manual | grep ${basedir}/jre-${version}/bin/java",
       }
 
 
