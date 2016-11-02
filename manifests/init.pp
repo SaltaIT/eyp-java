@@ -1,6 +1,6 @@
 #
 class java(
-            $version            = 8,
+            $version            = '8',
             $srcdir             = '/usr/local/src',
             $basedir            = '/opt',
             $java_package       = undef,

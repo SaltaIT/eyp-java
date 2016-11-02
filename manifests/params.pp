@@ -6,8 +6,8 @@ class java::params {
 
 
   $jre_download_command= {
-    7 => 'wget --no-cookies --no-check-certificate --header "Cookie: s_cc=true; s_nr=1477490926025; s_sq=%5B%5BB%5D%5D; ELOQUA=GUID=16F41EDAA12E43639FABA7188286B4A8; notice_preferences=2:cb8350a2759273dccf1e483791e6f8fd; gpw_e24=http%3A%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Fjre7-downloads-1880261.html; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jre-7u79-linux-x64.tar.gz"',
-    8 => 'wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u40-b25/jre-8u40-linux-x64.tar.gz"',
+    '7' => 'wget --no-cookies --no-check-certificate --header "Cookie: s_cc=true; s_nr=1477490926025; s_sq=%5B%5BB%5D%5D; ELOQUA=GUID=16F41EDAA12E43639FABA7188286B4A8; notice_preferences=2:cb8350a2759273dccf1e483791e6f8fd; gpw_e24=http%3A%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Fjre7-downloads-1880261.html; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jre-7u79-linux-x64.tar.gz"',
+    '8' => 'wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u40-b25/jre-8u40-linux-x64.tar.gz"',
   }
 
   #JCE 8
