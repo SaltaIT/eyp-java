@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.14
+
+* alternatives set
+
 ## 0.1.11
 
 * bugfix jre_download_command

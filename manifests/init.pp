@@ -35,7 +35,7 @@ class java(
   {
     if($java::params::jre_download_command[$version]==undef)
     {
-      fail('unsupported')
+      fail('unsupported JRE version')
     }
     else
     {
@@ -73,6 +73,28 @@ class java(
         content => "export JAVA_HOME=${basedir}/jre-${version}\n",
         require => Exec["update alternatives ${basedir}/jre-$version"],
       }
+
+      # [root@ar-prod-por01 tomcat8180]# alternatives --set java /opt/jre-7/bin/java
+      # [root@ar-prod-por01 tomcat8180]# alternatives --list | grep java
+      # java_sdk_openjdk	auto	/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-1.b15.el7_2.x86_64
+      # java_sdk_1.7.0_openjdk	auto	/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.111-2.6.7.2.el7_2.x86_64
+      # java_sdk_1.7.0	auto	/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.111-2.6.7.2.el7_2.x86_64
+      # jre_1.8.0	auto	/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-1.b15.el7_2.x86_64/jre
+      # jre_openjdk	auto	/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-1.b15.el7_2.x86_64/jre
+      # jre_1.7.0	auto	/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.111-2.6.7.2.el7_2.x86_64/jre
+      # java_sdk_1.8.0_openjdk	auto	/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-1.b15.el7_2.x86_64
+      # java	manual	/opt/jre-7/bin/java
+      # javac	auto	/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-1.b15.el7_2.x86_64/bin/javac
+      # java_sdk_1.8.0	auto	/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-1.b15.el7_2.x86_64
+      # [root@ar-prod-por01 tomcat8180]#
+
+      exec { "set java alternatives ${basedir}/jre-${version}":
+        command => "alternatives --set java ${basedir}/jre-${version}/bin/java",
+        require => Exec["update alternatives ${basedir}/jre-${version}"],
+        unless  => "${unless_update_alternatives} | grep -P \"java\t\" | grep manual | grep ${basedir}/jre-${version}/bin/java",
+      }
+
+
     }
   }
 }
