@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.19
+
+*  bugfix JCE
+
 ## 0.1.18
 
 * added jce unzip dependency to jce copy + lint
