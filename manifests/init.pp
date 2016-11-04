@@ -39,11 +39,16 @@ class java(
     }
     else
     {
+      exec { 'which wget eyp-java':
+        command => 'which wget',
+        unless  => 'which wget',
+      }
+
       exec { "java ${version} download":
         command => "${java::params::jre_download_command[$version]} -O ${srcdir}/jre-${version}.tgz",
         creates => "${srcdir}/jre-${version}.tgz",
-        require => Package['wget'],
-        before => $before_tomcat,
+        require => Exec['which wget eyp-java'],
+        before  => $before_tomcat,
       }
 
       file { "${basedir}/jre-${version}":
