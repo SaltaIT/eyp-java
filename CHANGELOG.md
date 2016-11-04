@@ -3,6 +3,8 @@
 ## 0.1.17
 
 * added wget and unzip checks using "unless which ..."
+* JCE support
+* improved check alternatives for JRE
 
 ## 0.1.16
 

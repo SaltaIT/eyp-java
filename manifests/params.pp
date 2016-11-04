@@ -31,6 +31,11 @@ class java::params {
     '8' => 'wget --no-cookies --no-check-certificate --header "Cookie: s_cc=true; s_nr=1477490926025; s_sq=%5B%5BB%5D%5D; gpw_e24=http%3A%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Fjce8-download-2133166.html; ELOQUA=GUID=16F41EDAA12E43639FABA7188286B4A8; notice_preferences=2:cb8350a2759273dccf1e483791e6f8fd; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip"',
   }
 
+  $jce_dir = {
+    '7' => 'UnlimitedJCEPolicy',
+    '8' => 'UnlimitedJCEPolicyJDK8',
+  }
+
   case $::osfamily
   {
     'redhat' :
