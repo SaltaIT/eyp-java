@@ -49,7 +49,8 @@ class java::jce (
     #$JAVA_HOME/jre/lib/security
     exec { "jce copy libraries ${version}":
       command => "cp -f ${srcdir}/jce-${version}/${jce_dir[$version]}/* ${java::basedir}/jre-${version}/lib/security",
-      unless => "md5sum ${srcdir}/jce-${version}/${jce_dir[$version]}/US_export_policy.jar ${srcdir}/jce-${version}/${jce_dir[$version]}/local_policy.jar ${java::basedir}/jre-${version}/lib/security/US_export_policy.jar ${java::basedir}/jre-${version}/lib/security/local_policy.jar | awk '{ print \$1 }' | sort | uniq | wc -l | grep 2"
+      unless  => "md5sum ${srcdir}/jce-${version}/${jce_dir[$version]}/US_export_policy.jar ${srcdir}/jce-${version}/${jce_dir[$version]}/local_policy.jar ${java::basedir}/jre-${version}/lib/security/US_export_policy.jar ${java::basedir}/jre-${version}/lib/security/local_policy.jar | awk '{ print \$1 }' | sort | uniq | wc -l | grep 2"
+      require => Exec["java jce ${version} unzip"],
     }
   }
 }

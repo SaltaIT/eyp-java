@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.18
+
+* added jce unzip dependency to jce copy + lint
+
 ## 0.1.17
 
 * added wget and unzip checks using "unless which ..."
