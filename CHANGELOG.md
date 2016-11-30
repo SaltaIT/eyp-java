@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.20
+
+* added **java::jce::download_source**
+
 ## 0.1.19
 
 *  bugfix JCE

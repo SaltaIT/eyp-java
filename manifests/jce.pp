@@ -3,6 +3,7 @@ class java::jce (
                   $version            = $java::version,
                   $srcdir             = '/usr/local/src',
                   $basedir            = '/opt',
+                  $download_source    = undef,
                 ) inherits java::params {
   Exec {
 		path => '/bin:/sbin:/usr/bin:/usr/sbin',
@@ -25,11 +26,23 @@ class java::jce (
       require => Class['java'],
     }
 
-    exec { "java jce ${version} download":
-      command => "${java::params::jce_download_command[$version]} -O ${srcdir}/jce-${version}.zip",
-      creates => "${srcdir}/jce-${version}.zip",
-      require => Exec['which unzip eyp-java'],
-      before  => $before_tomcat,
+    if($download_source==undef)
+    {
+      exec { "java jce ${version} download":
+        command => "${java::params::jce_download_command[$version]} -O ${srcdir}/jce-${version}.zip",
+        creates => "${srcdir}/jce-${version}.zip",
+        require => Exec['which unzip eyp-java'],
+        before  => $before_tomcat,
+      }
+    }
+    else
+    {
+      exec { "java jce ${version} download":
+        command => "wget ${download_source} -O ${srcdir}/jce-${version}.zip",
+        creates => "${srcdir}/jce-${version}.zip",
+        require => Exec['which unzip eyp-java'],
+        before  => $before_tomcat,
+      }
     }
 
     file { "${srcdir}/jce-${version}":
