@@ -1,4 +1,5 @@
 #
+# TODO: change class to define?
 class java::jce (
                   $version            = $java::version,
                   $srcdir             = '/usr/local/src',
