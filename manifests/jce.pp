@@ -9,10 +9,7 @@ class java::jce (
 		path => '/bin:/sbin:/usr/bin:/usr/sbin',
 	}
 
-  if(defined(Class['tomcat']))
-  {
-    $before_tomcat=Class['tomcat']
-  }
+  fail('no longer working')
 
   if($java::params::jce_download_command[$version]==undef)
   {
@@ -41,7 +38,7 @@ class java::jce (
         command => "wget ${download_source} -O ${srcdir}/jce-${version}.zip",
         creates => "${srcdir}/jce-${version}.zip",
         require => Exec['which unzip eyp-java'],
-        before  => $before_tomcat,
+        # before  => $before_tomcat,
       }
     }
 
