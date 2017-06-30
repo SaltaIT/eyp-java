@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.0
+
+* added **java::jre**
+
 ## 0.1.20
 
 * added **java::jce::download_source**
