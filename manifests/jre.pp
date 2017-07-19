@@ -1,10 +1,10 @@
 define java::jre(
                   $jre_url,
-                  $version          = $name,
-                  $srcdir           = '/usr/local/src',
-                  $basedir          = '/opt',
-                  $set_java_home    = false,
-                  $set_default_java = false,
+                  $version             = $name,
+                  $srcdir              = '/usr/local/src',
+                  $basedir             = '/opt',
+                  $set_java_home       = false,
+                  $set_as_default_java = false,
                 ) {
   Exec {
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
@@ -54,7 +54,7 @@ define java::jre(
     unless  => "${unless_update_alternatives} | grep ${basedir}/jre-${version}/bin/java",
   }
 
-  if($set_default_java)
+  if($set_as_default_java)
   {
     exec { "set java alternatives ${basedir}/jre-${version}":
       command => "alternatives --set java ${basedir}/jre-${version}/bin/java",
