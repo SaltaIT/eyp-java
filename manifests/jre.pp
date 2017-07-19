@@ -50,7 +50,7 @@ define java::jre(
 
   exec { "update alternatives ${basedir}/jre-${version}":
     command => "alternatives --install /usr/bin/java java ${basedir}/jre-${version}/bin/java 1",
-    require => Exec["targz jre $version"],
+    require => Exec["targz jre ${version}"],
     unless  => "${unless_update_alternatives} | grep ${basedir}/jre-${version}/bin/java",
   }
 
@@ -71,7 +71,7 @@ define java::jre(
       group   => 'root',
       mode    => '0755',
       content => "export JAVA_HOME=${basedir}/jre-${version}\n",
-      require => Exec["update alternatives ${basedir}/jre-$version"],
+      require => Exec["update alternatives ${basedir}/jre-${version}"],
     }
   }
 
