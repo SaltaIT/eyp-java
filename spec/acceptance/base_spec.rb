@@ -25,15 +25,15 @@ describe 'openvas class' do
     end
 
     it "check default java is 1.7" do
-      expect(shell("java -version 2>&1 | grep -E '\b1.7.\b'").exit_code).to be_zero
+      expect(shell("java -version 2>&1 | grep -E '\\b1.7.'").exit_code).to be_zero
     end
 
     it "check java is 1.8" do
-      expect(shell("/opt/jre-8/bin/java -version 2>&1 | grep -E '\b1.8.\b'").exit_code).to be_zero
+      expect(shell("/opt/jre-8/bin/java -version 2>&1 | grep -E '\\b1.8.'").exit_code).to be_zero
     end
 
     it "double check java 1.7 installation" do
-      expect(shell("/opt/jre-7/bin/java -version 2>&1 | grep -E '\b1.7.\b'").exit_code).to be_zero
+      expect(shell("/opt/jre-7/bin/java -version 2>&1 | grep -E '\\b1.7.'").exit_code).to be_zero
     end
 
   end
