@@ -10,7 +10,7 @@ hosts.each do |host|
     on host, "dpkg -i --force-all /tmp/puppet.deb"
     on host, "apt-get update"
     # host.install_package('puppet-agent')
-    on host, "apt-get install --allow  -y puppet-agent"
+    on host, "apt-get install --force-yes -y puppet-agent"
     on host, "export PATH=$PATH:/opt/puppetlabs/bin/"
     on host, "find / -xdev -iname puppet"
   else
