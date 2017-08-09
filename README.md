@@ -39,27 +39,30 @@ This module requires pluginsync enabled
 installs oracle java 8 by default:
 
 ```puppet
-class { 'java': }
+java::jre { '8':
+  jre_url => '...',
+}
+
 ```
 
 ## Usage
 
-installs a given java package:
+installs jre 7 and jre 8, setting jre7 as system's default:
 
 ```puppet
-class { 'java':
-	java_package => 'java-1.8.0-openjdk',
-	java_devel_package => 'java-1.8.0-openjdk-devel',
+java::jre { '8':
+  jre_url => '...',
+}
+
+java::jre { '7':
+  jre_url => '...',
+  set_as_default_java => true,
 }
 ```
 
 ## Reference
 
-* **version**: oracle java version (default: 8)
-* **srcdir**: source dir to keep temporal files (default: /usr/local/src)
-* **basedir**: base dir to install a oracle java (default: /opt)
-* **java_package**: java package to install if you don't want to use the oracle java version (default: undef)
-* **java_devel_package**: java devel package to install if you don't want to use the oracle java version (default: undef)
+TODO
 
 ## Limitations
 
@@ -68,6 +71,8 @@ Tested on:
 * CentOS 6
 * CentOS 7
 * Ubuntu 14.04
+* Ubuntu 16.04
+* Debian 8
 
 ## Development
 
