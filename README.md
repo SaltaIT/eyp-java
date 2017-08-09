@@ -67,7 +67,6 @@ TODO
 ## Limitations
 
 Tested on:
-* CentOS 5
 * CentOS 6
 * CentOS 7
 * Ubuntu 14.04
