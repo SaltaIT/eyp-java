@@ -11,6 +11,8 @@ hosts.each do |host|
     on host, "apt-get update"
     host.install_package('puppet-agent')
     on host, "export PATH=$PATH:/opt/puppetlabs/bin/"
+    on host, "which puppet"
+    on host, "find / -xdev -iname puppet"
   else
     install_puppet_agent_on host, {}
   end
