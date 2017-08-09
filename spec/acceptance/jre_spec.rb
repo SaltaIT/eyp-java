@@ -29,7 +29,7 @@ describe 'openvas class' do
     end
 
     it "check SUN default java is 1.7" do
-      expect(shell("java -version 2>&1 | grep -E 'Java HotSpot(TM)'").exit_code).to be_zero
+      expect(shell("java -version 2>&1 | grep -E 'Java HotSpot'").exit_code).to be_zero
     end
 
     it "check java is 1.8" do
@@ -37,7 +37,7 @@ describe 'openvas class' do
     end
 
     it "check SUN java is 1.8" do
-      expect(shell("/opt/jre-8/bin/java -version 2>&1 | grep -E 'Java HotSpot(TM)'").exit_code).to be_zero
+      expect(shell("/opt/jre-8/bin/java -version 2>&1 | grep -E 'Java HotSpot'").exit_code).to be_zero
     end
 
     it "double check java 1.7 installation" do
@@ -45,7 +45,7 @@ describe 'openvas class' do
     end
 
     it "double check SUN java 1.7 installation" do
-      expect(shell("/opt/jre-7/bin/java -version 2>&1 | grep -E 'Java HotSpot(TM)'").exit_code).to be_zero
+      expect(shell("/opt/jre-7/bin/java -version 2>&1 | grep -E 'Java HotSpot'").exit_code).to be_zero
     end
 
   end
