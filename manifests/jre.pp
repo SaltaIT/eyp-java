@@ -14,10 +14,12 @@ define java::jre(
   {
     'redhat' :
     {
+      $alternatives_cmd='alternatives'
       $unless_update_alternatives='echo | alternatives --config java'
     }
     'Debian':
     {
+      $alternatives_cmd='update-alternatives'
       $unless_update_alternatives='alternatives --list'
     }
     default  : { fail('Unsupported OS!') }
@@ -49,7 +51,7 @@ define java::jre(
   }
 
   exec { "update alternatives ${basedir}/jre-${version}":
-    command => "alternatives --install /usr/bin/java java ${basedir}/jre-${version}/bin/java 1",
+    command => "${alternatives_cmd} --install /usr/bin/java java ${basedir}/jre-${version}/bin/java 1",
     require => Exec["targz jre ${version}"],
     unless  => "${unless_update_alternatives} | grep ${basedir}/jre-${version}/bin/java",
   }
@@ -57,7 +59,7 @@ define java::jre(
   if($set_as_default_java)
   {
     exec { "set java alternatives ${basedir}/jre-${version}":
-      command => "alternatives --set java ${basedir}/jre-${version}/bin/java",
+      command => "${alternatives_cmd} --set java ${basedir}/jre-${version}/bin/java",
       require => Exec["update alternatives ${basedir}/jre-${version}"],
       unless  => "ls -la /etc/alternatives/java | grep ${basedir}/jre-${version}/bin/java",
     }

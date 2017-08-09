@@ -40,7 +40,6 @@ class java::params {
   {
     'redhat' :
     {
-      $unless_update_alternatives='echo | alternatives --config java'
       case $::operatingsystemrelease
       {
         /^5.*$/:
@@ -57,8 +56,6 @@ class java::params {
     }
     'Debian':
     {
-      fail('work in progress')
-      $unless_update_alternatives='alternatives --list'
     }
     default  : { fail('Unsupported OS!') }
   }
