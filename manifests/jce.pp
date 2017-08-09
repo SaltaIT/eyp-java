@@ -10,7 +10,7 @@ class java::jce (
   #   path => '/bin:/sbin:/usr/bin:/usr/sbin',
   # }
   #
-  # fail('no longer working')
+  fail('no longer working')
   #
   # if($java::params::jce_download_command[$version]==undef)
   # {
