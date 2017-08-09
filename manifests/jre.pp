@@ -20,7 +20,7 @@ define java::jre(
     'Debian':
     {
       $alternatives_cmd='update-alternatives'
-      $unless_update_alternatives='alternatives --list'
+      $unless_update_alternatives='update-alternatives --list java'
     }
     default  : { fail('Unsupported OS!') }
   }
