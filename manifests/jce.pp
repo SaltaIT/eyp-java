@@ -21,9 +21,9 @@
 
 define java::jce(
                   $jce_url,
-                  $version             = $name,
-                  $srcdir              = '/usr/local/src',
-                  $basedir             = '/opt',
+                  $version = $name,
+                  $srcdir  = '/usr/local/src',
+                  $basedir = '/opt',
                 ) {
   Exec {
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
