@@ -1,4 +1,3 @@
 # placeholder
-class java(
-          ) inherits java::params {
+class java() inherits java::params {
 }
