@@ -6,7 +6,7 @@ class java(
           ) inherits java::params {
   if($install_default_java)
   {
-    package { 'java':
+    package { $java::params::default_java:
       ensure => $package_ensure,
     }
   }

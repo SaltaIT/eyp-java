@@ -4,6 +4,7 @@ class java::params {
   {
     'redhat' :
     {
+      $default_java='java'
       case $::operatingsystemrelease
       {
         /^5.*$/:
@@ -20,6 +21,7 @@ class java::params {
     }
     'Debian':
     {
+      $default_java='default-jdk'
     }
     default  : { fail('Unsupported OS!') }
   }
