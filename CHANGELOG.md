@@ -1,9 +1,13 @@
 # CHANGELOG
 
+## 0.2.1
+
+* added default package and JRE installation via main **::java** class
+
 ## 0.2.0
 
 * **INCOMPATIBLE CHANGE**: removed jre installation from main class
-* added **java::jre**
+* added define **java::jre**
 
 ## 0.1.20
 
