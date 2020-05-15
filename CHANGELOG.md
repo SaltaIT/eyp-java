@@ -11,7 +11,7 @@
 
 ## 0.2.0
 
-* **INCOMPATIBLE CHANGE**: removed jre installation from main class
+* **INCOMPATIBLE CHANGE**: removed JRE installation from main class
 * added define **java::jre**
 
 ## 0.1.20
