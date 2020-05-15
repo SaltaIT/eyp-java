@@ -7,13 +7,7 @@ class java::params {
       $default_java='java'
       case $::operatingsystemrelease
       {
-        /^5.*$/:
-        {
-        }
-        /^6.*$/:
-        {
-        }
-        /^7.*$/:
+        /^[5678].*$/:
         {
         }
         default: { fail('Unsupported RHEL/CentOS version!')  }

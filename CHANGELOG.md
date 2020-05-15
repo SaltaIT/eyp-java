@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.2.2
+
+* added compatibility with 0.1 branch using **java_package** and **java_devel_package**
+* added **CentOS 8**, **Ubuntu 20.04** and **Debian 10** support
+
 ## 0.2.1
 
 * added default package and JRE installation via main **::java** class
