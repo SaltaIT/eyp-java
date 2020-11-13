@@ -1,7 +1,7 @@
 {
   "name": "eyp-java",
   "version": "0.2.2",
-  "author": "eyp",
+  "author": "Jordi Prats",
   "summary": "java installation & updates alternatives",
   "license": "Apache-2.0",
   "source": "https://github.com/SaltaIT/eyp-java",
