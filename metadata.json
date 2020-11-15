@@ -1,12 +1,12 @@
 {
   "name": "eyp-java",
-  "version": "0.2.2",
-  "author": "eyp",
+  "version": "2.0.2",
+  "author": "Jordi Prats",
   "summary": "java installation & updates alternatives",
   "license": "Apache-2.0",
-  "source": "https://github.com/NTTCom-MS/eyp-java",
-  "project_page": "https://github.com/NTTCom-MS/eyp-java",
-  "issues_url": "https://github.com/NTTCom-MS/eyp-mysql/issues",
+  "source": "https://github.com/SaltaIT/eyp-java",
+  "project_page": "https://github.com/SaltaIT/eyp-java",
+  "issues_url": "https://github.com/SaltaIT/eyp-mysql/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 1.0.0 < 9.9.9"}
   ],
@@ -47,7 +47,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 3.8.0"
+      "version_requirement": ">= 4.0.0"
     }
   ]
 }
